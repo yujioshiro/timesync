@@ -1,0 +1,576 @@
+@charset "UTF-8";
+
+/*!
+ * Pico.css v1.5.7 (https://picocss.com)
+ * Copyright 2019-2023 - Licensed under MIT
+ */
+/**
+ * Theme: default
+ */
+:root {
+  --font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  --line-height: 1.5;
+  --font-weight: 400;
+  --font-size: 16px;
+  --border-radius: 0.25rem;
+  --border-width: 1px;
+  --outline-width: 3px;
+  --spacing: 1rem;
+  --typography-spacing-vertical: 1.5rem;
+  --block-spacing-vertical: calc(var(--spacing) * 2);
+  --block-spacing-horizontal: var(--spacing);
+  --form-element-spacing-vertical: 0.75rem;
+  --form-element-spacing-horizontal: 1rem;
+  --form-label-font-weight: var(--font-weight);
+  --transition: 0.2s ease-in-out;
+}
+@media (min-width: 576px) {
+  :root {
+    --font-size: 17px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --font-size: 18px;
+  }
+}
+@media (min-width: 992px) {
+  :root {
+    --font-size: 19px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    --font-size: 20px;
+  }
+}
+
+@media (min-width: 576px) {
+  body > header,
+  body > main,
+  body > footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 2.5);
+  }
+}
+@media (min-width: 768px) {
+  body > header,
+  body > main,
+  body > footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 3);
+  }
+}
+@media (min-width: 992px) {
+  body > header,
+  body > main,
+  body > footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 3.5);
+  }
+}
+@media (min-width: 1200px) {
+  body > header,
+  body > main,
+  body > footer,
+  section {
+    --block-spacing-vertical: calc(var(--spacing) * 4);
+  }
+}
+
+a {
+  --text-decoration: none;
+}
+
+h1,
+h2 {
+  --font-weight: 700;
+}
+
+h1 {
+  --font-size: 4rem;
+  line-height: 1.1;
+  --typography-spacing-vertical: 0;
+}
+
+h2 {
+  --font-size: 1.25rem;
+  --typography-spacing-vertical: 1.874rem;
+}
+
+[data-theme=light],
+:root:not([data-theme=dark]) {
+  --background-color: #fff;
+  --color: hsl(205deg, 20%, 32%);
+  --h1-color: hsl(205deg, 30%, 15%);
+  --h2-color: #24333e;
+  --muted-color: hsl(205deg, 10%, 50%);
+  --muted-border-color: hsl(205deg, 20%, 94%);
+  --primary: hsl(195deg, 85%, 41%);
+  --primary-hover: hsl(195deg, 90%, 32%);
+  --primary-focus: rgba(16, 149, 193, 0.125);
+  --primary-inverse: #fff;
+  --button-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --form-element-background-color: transparent;
+  --form-element-border-color: hsl(205deg, 14%, 68%);
+  --form-element-color: var(--color);
+  --form-element-placeholder-color: var(--muted-color);
+  --form-element-active-background-color: transparent;
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --form-element-disabled-background-color: hsl(205deg, 18%, 86%);
+  --form-element-disabled-border-color: hsl(205deg, 14%, 68%);
+  --form-element-disabled-opacity: 0.5;
+  --form-element-invalid-border-color: #c62828;
+  --form-element-invalid-active-border-color: #d32f2f;
+  --form-element-invalid-focus-color: rgba(211, 47, 47, 0.125);
+  --form-element-valid-border-color: #388e3c;
+  --form-element-valid-active-border-color: #43a047;
+  --form-element-valid-focus-color: rgba(67, 160, 71, 0.125);
+  color-scheme: light;
+}
+
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background-color: #11191f;
+    --color: hsl(205deg, 16%, 77%);
+    --h1-color: hsl(205deg, 20%, 94%);
+    --h2-color: #e1e6eb;
+    --h3-color: hsl(205deg, 18%, 86%);
+    --h4-color: #c8d1d8;
+    --h5-color: hsl(205deg, 16%, 77%);
+    --h6-color: #afbbc4;
+    --muted-color: hsl(205deg, 10%, 50%);
+    --muted-border-color: #1f2d38;
+    --primary: hsl(195deg, 85%, 41%);
+    --primary-hover: hsl(195deg, 80%, 50%);
+    --primary-focus: rgba(16, 149, 193, 0.25);
+    --primary-inverse: #fff;
+    --blockquote-border-color: var(--muted-border-color);
+    --blockquote-footer-color: var(--muted-color);
+    --button-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    --form-element-background-color: #11191f;
+    --form-element-border-color: #374956;
+    --form-element-color: var(--color);
+    --form-element-placeholder-color: var(--muted-color);
+    --form-element-active-background-color: var(--form-element-background-color);
+    --form-element-active-border-color: var(--primary);
+    --form-element-focus-color: var(--primary-focus);
+    --form-element-disabled-background-color: hsl(205deg, 25%, 23%);
+    --form-element-disabled-border-color: hsl(205deg, 20%, 32%);
+    --form-element-disabled-opacity: 0.5;
+    --form-element-invalid-border-color: #b71c1c;
+    --form-element-invalid-active-border-color: #c62828;
+    --form-element-invalid-focus-color: rgba(198, 40, 40, 0.25);
+    --form-element-valid-border-color: #2e7d32;
+    --form-element-valid-active-border-color: #388e3c;
+    --form-element-valid-focus-color: rgba(56, 142, 60, 0.25);
+    color-scheme: dark;
+  }
+}
+[data-theme=dark] {
+  --background-color: #11191f;
+  --color: hsl(205deg, 16%, 77%);
+  --h1-color: hsl(205deg, 20%, 94%);
+  --h2-color: #e1e6eb;
+  --h3-color: hsl(205deg, 18%, 86%);
+  --h4-color: #c8d1d8;
+  --h5-color: hsl(205deg, 16%, 77%);
+  --h6-color: #afbbc4;
+  --muted-color: hsl(205deg, 10%, 50%);
+  --muted-border-color: #1f2d38;
+  --primary: hsl(195deg, 85%, 41%);
+  --primary-hover: hsl(195deg, 80%, 50%);
+  --primary-focus: rgba(16, 149, 193, 0.25);
+  --primary-inverse: #fff;
+  --blockquote-border-color: var(--muted-border-color);
+  --blockquote-footer-color: var(--muted-color);
+  --button-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --button-hover-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  --form-element-background-color: #11191f;
+  --form-element-border-color: #374956;
+  --form-element-color: var(--color);
+  --form-element-placeholder-color: var(--muted-color);
+  --form-element-active-background-color: var(--form-element-background-color);
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --form-element-disabled-background-color: hsl(205deg, 25%, 23%);
+  --form-element-disabled-border-color: hsl(205deg, 20%, 32%);
+  --form-element-disabled-opacity: 0.5;
+  --form-element-invalid-border-color: #b71c1c;
+  --form-element-invalid-active-border-color: #c62828;
+  --form-element-invalid-focus-color: rgba(198, 40, 40, 0.25);
+  --form-element-valid-border-color: #2e7d32;
+  --form-element-valid-active-border-color: #388e3c;
+  --form-element-valid-focus-color: rgba(56, 142, 60, 0.25);
+  color-scheme: dark;
+}
+
+/**
+ * Document
+ * Content-box & Responsive typography
+ */
+*,
+*::before,
+*::after {
+  background-repeat: no-repeat;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+:where(:root) {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background-color: var(--background-color);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-family: var(--font-family);
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  cursor: default;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+
+/**
+ * Sectioning
+ * Container and responsive spacings for header, main, footer
+ */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+}
+
+a,
+[role=link] {
+  --color: var(--primary);
+  --background-color: transparent;
+  outline: none;
+  background-color: var(--background-color);
+  color: var(--color);
+  -webkit-text-decoration: var(--text-decoration);
+  text-decoration: var(--text-decoration);
+  transition: background-color var(--transition), color var(--transition), box-shadow var(--transition), -webkit-text-decoration var(--transition);
+  transition: background-color var(--transition), color var(--transition), text-decoration var(--transition), box-shadow var(--transition);
+  transition: background-color var(--transition), color var(--transition), text-decoration var(--transition), box-shadow var(--transition), -webkit-text-decoration var(--transition);
+}
+a:is([aria-current], :hover, :active, :focus),
+[role=link]:is([aria-current], :hover, :active, :focus) {
+  --color: var(--primary-hover);
+  --text-decoration: underline;
+}
+a:focus,
+[role=link]:focus {
+  --background-color: var(--primary-focus);
+}
+
+h1,
+h2 {
+  margin: 0;
+  margin-bottom: var(--typography-spacing-vertical);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+}
+
+h1 {
+  --color: var(--h1-color);
+}
+
+h2 {
+  --color: var(--h2-color);
+}
+
+
+:where(address, blockquote, dl, figure, form, ol, p, pre, table, ul) ~ :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: var(--typography-spacing-vertical);
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+  text-decoration: none;
+  cursor: help;
+}
+
+::-moz-selection {
+  background-color: var(--primary-focus);
+}
+
+::selection {
+  background-color: var(--primary-focus);
+}
+
+/**
+ * Button
+ */
+button {
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  text-transform: none;
+}
+
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+
+button {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--spacing);
+}
+
+[role=button] {
+  display: inline-block;
+  text-decoration: none;
+}
+
+button,
+input[type=submit],
+input[type=button],
+input[type=reset],
+[role=button] {
+  --background-color: var(--primary);
+  --border-color: var(--primary);
+  --color: var(--primary-inverse);
+  --box-shadow: var(--button-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+  padding: var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  outline: none;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: 1rem;
+  line-height: var(--line-height);
+  text-align: center;
+  cursor: pointer;
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+button:is([aria-current], :hover, :active, :focus),
+input[type=submit]:is([aria-current], :hover, :active, :focus),
+input[type=button]:is([aria-current], :hover, :active, :focus),
+input[type=reset]:is([aria-current], :hover, :active, :focus),
+[role=button]:is([aria-current], :hover, :active, :focus) {
+  --background-color: var(--primary-hover);
+  --border-color: var(--primary-hover);
+  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0));
+  --color: var(--primary-inverse);
+}
+button:focus,
+input[type=submit]:focus,
+input[type=button]:focus,
+input[type=reset]:focus,
+[role=button]:focus {
+  --box-shadow: var(--button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)),
+    0 0 0 var(--outline-width) var(--primary-focus);
+}
+
+:where(button, [type=submit], [type=button], [type=reset], [role=button])[disabled],
+:where(fieldset[disabled]) :is(button, [type=submit], [type=button], [type=reset], [role=button]),
+a[role=button]:not([href]) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/**
+ * Form elements
+ */
+select {
+  margin: 0;
+  font-size: 1rem;
+  line-height: var(--line-height);
+  font-family: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: var(--form-element-spacing-vertical) var(--form-element-spacing-horizontal);
+  --background-color: var(--form-element-background-color);
+  --border-color: var(--form-element-border-color);
+  --color: var(--form-element-color);
+  --box-shadow: none;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  transition: background-color var(--transition), border-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+
+input:not([type=submit], [type=button], [type=reset], [role=switch], [readonly]):is(:active, :focus),
+:where(select, textarea):is(:active, :focus) {
+  --border-color: var(--form-element-active-border-color);
+}
+
+input:not([type=submit], [type=button], [type=reset], [type=range], [type=file], [readonly]):focus,
+select:focus,
+textarea:focus {
+  --box-shadow: 0 0 0 var(--outline-width) var(--form-element-focus-color);
+}
+
+input:not([type=submit], [type=button], [type=reset])[disabled],
+select[disabled],
+textarea[disabled],
+:where(fieldset[disabled]) :is(input:not([type=submit], [type=button], [type=reset]), select, textarea) {
+  --background-color: var(--form-element-disabled-background-color);
+  --border-color: var(--form-element-disabled-border-color);
+  opacity: var(--form-element-disabled-opacity);
+  pointer-events: none;
+}
+
+:where(input, select, textarea):not([type=checkbox], [type=radio], [type=date], [type=datetime-local], [type=month], [type=time], [type=week])[aria-invalid] {
+  padding-right: calc(var(--form-element-spacing-horizontal) + 1.5rem) !important;
+  padding-left: var(--form-element-spacing-horizontal);
+  -webkit-padding-start: var(--form-element-spacing-horizontal) !important;
+  padding-inline-start: var(--form-element-spacing-horizontal) !important;
+  -webkit-padding-end: calc(var(--form-element-spacing-horizontal) + 1.5rem) !important;
+  padding-inline-end: calc(var(--form-element-spacing-horizontal) + 1.5rem) !important;
+  background-position: center right 0.75rem;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+}
+:where(input, select, textarea):not([type=checkbox], [type=radio], [type=date], [type=datetime-local], [type=month], [type=time], [type=week])[aria-invalid=false] {
+  background-image: var(--icon-valid);
+}
+:where(input, select, textarea):not([type=checkbox], [type=radio], [type=date], [type=datetime-local], [type=month], [type=time], [type=week])[aria-invalid=true] {
+  background-image: var(--icon-invalid);
+}
+:where(input, select, textarea)[aria-invalid=false] {
+  --border-color: var(--form-element-valid-border-color);
+}
+:where(input, select, textarea)[aria-invalid=false]:is(:active, :focus) {
+  --border-color: var(--form-element-valid-active-border-color) !important;
+  --box-shadow: 0 0 0 var(--outline-width) var(--form-element-valid-focus-color) !important;
+}
+:where(input, select, textarea)[aria-invalid=true] {
+  --border-color: var(--form-element-invalid-border-color);
+}
+:where(input, select, textarea)[aria-invalid=true]:is(:active, :focus) {
+  --border-color: var(--form-element-invalid-active-border-color) !important;
+  --box-shadow: 0 0 0 var(--outline-width) var(--form-element-invalid-focus-color) !important;
+}
+
+[dir=rtl] :where(input, select, textarea):not([type=checkbox], [type=radio]):is([aria-invalid], [aria-invalid=true], [aria-invalid=false]) {
+  background-position: center left 0.75rem;
+}
+
+input::placeholder,
+input::-webkit-input-placeholder,
+textarea::placeholder,
+textarea::-webkit-input-placeholder,
+select:invalid {
+  color: var(--form-element-placeholder-color);
+  opacity: 1;
+}
+
+input:not([type=checkbox], [type=radio]),
+select,
+textarea {
+  margin-bottom: var(--spacing);
+}
+
+select::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+
+select:not([multiple], [size]) {
+  padding-right: calc(var(--form-element-spacing-horizontal) + 1.5rem);
+  padding-left: var(--form-element-spacing-horizontal);
+  -webkit-padding-start: var(--form-element-spacing-horizontal);
+  padding-inline-start: var(--form-element-spacing-horizontal);
+  -webkit-padding-end: calc(var(--form-element-spacing-horizontal) + 1.5rem);
+  padding-inline-end: calc(var(--form-element-spacing-horizontal) + 1.5rem);
+  background-image: var(--icon-chevron);
+  background-position: center right 0.75rem;
+  background-size: 1rem auto;
+  background-repeat: no-repeat;
+}
+
+:where(input, select, textarea) + small {
+  display: block;
+  width: 100%;
+  margin-top: calc(var(--spacing) * -0.75);
+  margin-bottom: var(--spacing);
+  color: var(--muted-color);
+}
+
+/**
+ * Accessibility & User interaction
+ */
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled=true],
+[disabled] {
+  cursor: not-allowed;
+}
+
+[aria-hidden=false][hidden] {
+  display: initial;
+}
+
+[aria-hidden=false][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
+
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation;
+}
+
+/*# sourceMappingURL=pico.classless.css.map */
+
+
+
+/* Blinking colon in the h1 to look like a clock */
+#time-colon {
+  opacity: 0;
+  animation: blinking 1s linear infinite;
+}
+
+@keyframes blinking {
+  from,
+  49.9% {
+    opacity: 0;
+  }
+  50%,
+  to {
+    opacity: 1;
+  }
+}
